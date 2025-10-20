@@ -4,4 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon"],
   css: ["@/assets/scss/main.scss"],
+  typescript: {
+    strict: true,
+  },
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+    rootId: "app",
+  },
 });
