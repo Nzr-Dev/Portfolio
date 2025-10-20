@@ -1,17 +1,9 @@
 <template>
-  <div id="app">
-    <slot />
+  <div class="main-container">
+    <Navbar />
   </div>
 </template>
 
 <script setup lang="ts">
-// Root App component
+import Navbar from "./components/Navbar.vue";
 </script>
-
-<style lang="scss">
-#app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-</style>
