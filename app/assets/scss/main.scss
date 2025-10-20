@@ -1,0 +1,7 @@
+@import "variables";
+@import "reset";
+@import "mixins";
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+}

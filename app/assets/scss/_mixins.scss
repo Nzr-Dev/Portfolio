@@ -1,0 +1,8 @@
+@mixin neon-shadow {
+  box-shadow: var(--shadow-neon);
+}
+@mixin card-style {
+  background: var(--card-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+}

@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm Nazar",
+    "description": "Web developer passionate about clean code and elegant UI."
+  },
+  "projects": [
+    {
+      "title": "Project Alpha",
+      "description": "Landing page built with Nuxt and SCSS.",
+      "url": "#"
+    }
+  ]
+}
