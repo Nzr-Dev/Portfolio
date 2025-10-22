@@ -1,17 +1,12 @@
 <template>
-  <section id="experiencia" class="seccion-experiencia">
-    <div class="experiencia-contenedor">
-      <h2 class="titulo-seccion">Experiencia</h2>
+  <section id="experience" class="section">
+    <div class="section__container">
+      <h2 class="section__title">Experience</h2>
 
-      <div class="experiencia-grid">
-        <!-- Estudios -->
-        <ExperienceCard
-          title="Estudios, Títulos y Formación"
-          :items="educationItems"
-        />
+      <div class="experience-grid">
+        <ExperienceCard title="Education & Training" :items="educationItems" />
 
-        <!-- Experiencia Laboral -->
-        <ExperienceCard title="Experiencia Laboral" :items="workItems" />
+        <ExperienceCard title="Work Experience" :items="workItems" />
       </div>
     </div>
   </section>
@@ -22,65 +17,50 @@ import ExperienceCard from "./ExperienceCard.vue";
 
 const educationItems = [
   {
-    title: "Grado en Ingeniería Informática",
-    highlight: "Universidad Politécnica",
-    date: "2015 - 2019",
-    icon: false,
+    title: "Bachelor's Degree in Computer Engineering",
+    organization: "Polytechnic University",
+    period: "2015 - 2019",
+    description: "",
+    type: "education",
   },
   {
-    title: "Curso Avanzado de React",
-    highlight: "Plataforma Online de Cursos",
-    date: "2020",
-    icon: false,
+    title: "Advanced React Course",
+    organization: "Online Course Platform",
+    period: "2020",
+    description: "",
+    type: "education",
   },
 ];
 
 const workItems = [
   {
-    title: "Frontend Developer en Tech Solutions",
-    highlight: "Enero 2021 - Presente",
-    date: "Desarrollo y mantenimiento de aplicaciones web interactivas utilizando React y Redux. Colaboración con equipos de UI/UX para implementar diseños pixel-perfect.",
-    icon: true,
+    title: "Frontend Developer",
+    organization: "Tech Solutions",
+    period: "January 2021 - Present",
+    description:
+      "Development and maintenance of interactive web applications using React and Redux. Collaboration with UI/UX teams to implement pixel-perfect designs.",
+    type: "work",
   },
   {
-    title: "Web Developer Jr. en Innovate Co.",
-    highlight: "Junio 2019 - Diciembre 2020",
-    date: "Construcción de sitios web responsivos y optimizados para clientes de diversas industrias, utilizando principalmente HTML, CSS y JavaScript.",
-    icon: true,
+    title: "Junior Web Developer",
+    organization: "Innovate Co.",
+    period: "June 2019 - December 2020",
+    description:
+      "Building responsive and optimized websites for clients from various industries, using HTML, CSS and JavaScript.",
+    type: "work",
   },
 ];
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/scss/variables";
-@import "@/assets/scss/mixins";
-
-.seccion-experiencia {
-  padding: 5rem 1.5rem;
-
-  .experiencia-contenedor {
-    max-width: var(--max-width);
-    margin: 0 auto;
-
-    .titulo-seccion {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .experiencia-grid {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: 1fr;
-    }
-  }
+.experience-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
 }
 
-/* Responsive */
 @media (min-width: 768px) {
-  .experiencia-grid {
+  .experience-grid {
     grid-template-columns: 1fr 1fr;
   }
 }

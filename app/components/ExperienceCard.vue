@@ -1,24 +1,29 @@
 <template>
-  <div class="experiencia-bloque">
-    <h3 class="subtitulo-experiencia">{{ title }}</h3>
-    <div class="linea-tiempo">
-      <div v-for="(item, index) in items" :key="index" class="item-tiempo">
-        <div class="icono-tiempo">
-          <div class="icono-circulo">
-            <span
-              v-if="item.icon"
-              class="material-symbols-outlined"
-              aria-hidden="true"
-              >work</span
-            >
-            <template v-else>{{ index + 1 }}</template>
+  <div class="experience-card">
+    <h3 class="experience-card__title">{{ title }}</h3>
+
+    <div class="timeline">
+      <div v-for="(item, index) in items" :key="index" class="timeline__item">
+        <div class="timeline__marker">
+          <div class="timeline__icon">
+            <span v-if="item.type === 'work'" class="material-symbols-outlined">
+              work
+            </span>
+            <span v-else>{{ index + 1 }}</span>
           </div>
-          <div v-if="index !== items.length - 1" class="linea-vertical"></div>
+          <div
+            v-if="index !== items.length - 1"
+            class="timeline__connector"
+          ></div>
         </div>
-        <div class="contenido-tiempo">
-          <h4>{{ item.title }}</h4>
-          <p class="texto-destacado">{{ item.highlight }}</p>
-          <p class="texto-secundario">{{ item.date }}</p>
+
+        <div class="timeline__content">
+          <h4 class="timeline__title">{{ item.title }}</h4>
+          <p class="timeline__organization">{{ item.organization }}</p>
+          <p class="timeline__period">{{ item.period }}</p>
+          <p v-if="item.description" class="timeline__description">
+            {{ item.description }}
+          </p>
         </div>
       </div>
     </div>
@@ -26,93 +31,98 @@
 </template>
 
 <script setup lang="ts">
-interface TimeItem {
+interface TimelineItem {
   title: string;
-  highlight: string;
-  date: string;
-  icon?: boolean; // indica si debe mostrar icono en lugar de número
+  organization: string;
+  period: string;
+  description?: string;
+  type: "education" | "work";
 }
 
 interface Props {
   title: string;
-  items: TimeItem[];
+  items: TimelineItem[];
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/scss/variables";
-@import "@/assets/scss/mixins";
-
-.experiencia-bloque {
+.experience-card {
   @include card-style;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 
-  .subtitulo-experiencia {
+  &__title {
     font-size: 1.75rem;
     color: var(--accent-color);
     text-align: center;
     margin-bottom: 2rem;
   }
+}
 
-  .linea-tiempo {
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__item {
+    display: flex;
+  }
+
+  &__marker {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    margin-right: 1rem;
+  }
 
-    .item-tiempo {
-      display: flex;
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    font-weight: 700;
+    @include neon-shadow;
+  }
 
-      .icono-tiempo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right: 1rem;
+  &__connector {
+    width: 2px;
+    flex-grow: 1;
+    background: rgba(100, 255, 218, 0.5);
+    margin-top: 0.25rem;
+  }
 
-        .icono-circulo {
-          width: 2rem;
-          height: 2rem;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: var(--accent-color);
-          color: var(--bg-color);
-          font-weight: 700;
-          @include neon-shadow;
-        }
+  &__content {
+    flex: 1;
+  }
 
-        .linea-vertical {
-          width: 2px;
-          flex-grow: 1;
-          background-color: rgba(100, 255, 218, 0.5);
-          margin-top: 0.25rem;
-        }
-      }
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 0.25rem 0;
+  }
 
-      .contenido-tiempo {
-        h4 {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: var(--text-color);
-          margin: 0;
-        }
-        .texto-destacado {
-          color: var(--accent-color);
-          font-size: 0.9rem;
-          margin-top: 0.25rem;
-        }
-        .texto-secundario {
-          color: var(--muted-color);
-          font-size: 0.9rem;
-          margin-top: 0.5rem;
-          line-height: 1.5;
-        }
-      }
-    }
+  &__organization {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin: 0 0 0.25rem 0;
+  }
+
+  &__period {
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  &__description {
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
   }
 }
 </style>

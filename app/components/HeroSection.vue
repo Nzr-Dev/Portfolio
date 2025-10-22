@@ -1,132 +1,88 @@
 <template>
-  <section id="inicio" class="seccion-inicio">
-    <div class="inicio-contenido">
-      <!-- TEXTO -->
-      <div class="inicio-texto">
-        <h1>Juan Pérez</h1>
-        <h2>Desarrollador Web Frontend</h2>
-        <p>
-          Creando experiencias web futuristas con un toque de neón. Mi objetivo
-          es combinar diseño y funcionalidad para construir interfaces
-          intuitivas y atractivas.
-        </p>
-
-        <div class="inicio-botones">
-          <a href="#proyectos" class="btn btn-principal">Ver mis proyectos</a>
-          <a href="#contacto" class="btn btn-secundario">Contactarme</a>
+  <section id="home" class="hero">
+    <div class="hero__container">
+      <div class="hero__content">
+        <div class="hero__text">
+          <h1>Juan Pérez</h1>
+          <h2>Frontend Web Developer</h2>
+          <p>
+            Creating futuristic web experiences with a neon touch. My goal is to
+            combine design and functionality to build intuitive and attractive
+            interfaces.
+          </p>
+          <div class="hero__buttons">
+            <a href="#projects" class="btn btn--primary">View my projects</a>
+            <a href="#contact" class="btn btn--secondary">Contact me</a>
+          </div>
         </div>
-      </div>
 
-      <!-- FOTO -->
-      <div class="inicio-foto">
-        <div class="foto-borde">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlJkYcygIP2DWrddLpQtACUY0xdJ3cUuKknwWrcxjskyMEDi2K-ItR8DV8Dj-TrRN3gkTezQOq6iGuKssnBMWKGTP0a0C5f4yPic6Yo7KROlAcnsq-In8eMcVxviqQKzWVNENRlKNQt3P9JCfeVqdN8s2Vew60Ox0wDuh_sTpxzB2EA6Qfg6QUttNJ-_3HOMDrhfAU2NnGbc12vMapizyZe-92AoaC21yH7GXrC-LtJ0U-qcbUQraonJbluFBYr_LCAeZWe66WINtq"
-            alt="Foto de perfil de Juan Pérez"
-            loading="lazy"
-          />
+        <div class="hero__image">
+          <div class="image__border">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlJkYcygIP2DWrddLpQtACUY0xdJ3cUuKknwWrcxjskyMEDi2K-ItR8DV8Dj-TrRN3gkTezQOq6iGuKssnBMWKGTP0a0C5f4yPic6Yo7KROlAcnsq-In8eMcVxviqQKzWVNENRlKNQt3P9JCfeVqdN8s2Vew60Ox0wDuh_sTpxzB2EA6Qfg6QUttNJ-_3HOMDrhfAU2NnGbc12vMapizyZe-92AoaC21yH7GXrC-LtJ0U-qcbUQraonJbluFBYr_LCAeZWe66WINtq"
+              alt="Juan Pérez profile photo"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
-// No se necesita lógica adicional
-</script>
-
 <style scoped lang="scss">
-.seccion-inicio {
+.hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 6rem 1.5rem 1.5rem;
-  background: var(--bg-color);
+  padding: 6rem 1.5rem 2rem;
 
-  .inicio-contenido {
-    width: 100%;
+  &__container {
     max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    justify-content: center;
     text-align: center;
   }
 
-  .inicio-texto {
+  &__text {
+    max-width: 600px;
+
     h1 {
       font-size: 3rem;
       font-weight: 700;
       color: #fff;
-      font-family: var(--font-head);
+      margin-bottom: 0.5rem;
     }
 
     h2 {
       font-size: 1.75rem;
       color: var(--accent-color);
-      margin-top: 1rem;
-      font-family: var(--font-head);
+      margin-bottom: 1rem;
     }
 
     p {
-      margin-top: 1rem;
       color: var(--muted-color);
+      margin-bottom: 1.5rem;
       line-height: 1.6;
     }
   }
 
-  .inicio-botones {
-    margin-top: 1.5rem;
+  &__buttons {
     display: flex;
     gap: 1rem;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: center;
   }
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    padding: 0 1.5rem;
-    font-weight: 700;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    transition: var(--transition);
-    text-decoration: none;
-    cursor: pointer;
-
-    &-principal {
-      background: var(--accent-color);
-      color: var(--bg-color);
-
-      &:hover {
-        box-shadow: var(--shadow-neon);
-        transform: translateY(-2px);
-      }
-    }
-
-    &-secundario {
-      background: var(--card-color);
-      color: var(--accent-color);
-      border: 1px solid var(--accent-color);
-
-      &:hover {
-        box-shadow: var(--shadow-neon);
-        transform: translateY(-2px);
-        background: var(--accent-weak);
-      }
-    }
-  }
-
-  .inicio-foto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .foto-borde {
+  &__image {
+    .image__border {
       width: 16rem;
       height: 16rem;
       border-radius: 50%;
@@ -142,26 +98,45 @@
       }
     }
   }
+}
 
-  @media (min-width: 768px) {
-    .inicio-contenido {
+@media (min-width: 768px) {
+  .hero {
+    &__content {
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
       text-align: left;
     }
 
-    .inicio-texto h1 {
-      font-size: 4.5rem;
+    &__text {
+      h1 {
+        font-size: 4.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
     }
 
-    .inicio-texto h2 {
-      font-size: 2rem;
+    &__image {
+      .image__border {
+        width: 20rem;
+        height: 20rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    &__buttons {
+      flex-direction: column;
+      align-items: center;
     }
 
-    .foto-borde {
-      width: 20rem;
-      height: 20rem;
+    .btn {
+      width: 100%;
+      max-width: 280px;
     }
   }
 }

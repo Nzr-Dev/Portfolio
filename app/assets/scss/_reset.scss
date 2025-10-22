@@ -1,19 +1,34 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  margin: 0;
   background: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-sans);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 a {
   color: inherit;
   text-decoration: none;
   transition: color 0.25s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head);
+  line-height: 1.2;
 }

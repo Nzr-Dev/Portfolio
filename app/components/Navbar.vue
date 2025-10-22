@@ -1,11 +1,11 @@
 <template>
   <nav class="navbar">
-    <div class="nav-enlaces">
-      <a href="#inicio">Inicio</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#tecnologias">Tecnologías</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#contacto">Contacto</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#technologies">Technologies</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 </template>
@@ -13,15 +13,16 @@
 <style scoped lang="scss">
 .navbar {
   position: fixed;
-  inset: 0 0 auto 0;
   top: 0;
+  left: 0;
+  right: 0;
   background: rgba(10, 25, 47, 0.8);
   backdrop-filter: blur(6px);
-  z-index: 50;
+  z-index: 1000;
   padding: 1rem 0;
 }
 
-.nav-enlaces {
+.nav-links {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
@@ -30,14 +31,20 @@
   padding: 0 1rem;
 }
 
-.nav-enlaces a {
+.nav-links a {
   color: var(--text-color);
   font-weight: 500;
-  text-decoration: none;
   transition: color 0.25s ease;
+
+  &:hover {
+    color: var(--accent-color);
+  }
 }
 
-.nav-enlaces a:hover {
-  color: var(--accent-color);
+@media (max-width: 640px) {
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 }
 </style>
