@@ -1,0 +1,48 @@
+@import "variables";
+@import "reset";
+@import "mixins";
+
+// Global button styles for consistency
+.btn {
+  @include button-base;
+
+  &--primary {
+    background: var(--accent-color);
+    color: var(--bg-color);
+
+    &:hover {
+      @include neon-shadow;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    background: var(--card-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+
+    &:hover {
+      @include neon-shadow;
+      transform: translateY(-2px);
+      background: var(--accent-weak);
+    }
+  }
+}
+
+// Common section styles
+.section {
+  padding: 5rem 1.5rem;
+
+  &__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}
