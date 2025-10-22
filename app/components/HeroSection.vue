@@ -3,15 +3,16 @@
     <div class="hero-content">
       <!-- Texto principal -->
       <div class="hero-text">
-        <h1>Hi, I'm <span class="highlight">Pepe</span></h1>
-        <h2>Web Developer</h2>
-        <p>
-          Passionate about creating elegant, responsive and performant websites.
-          I love turning ideas into functional, beautiful interfaces.
-        </p>
+        <h1>{{ texts.hero.greeting }}</h1>
+        <h2>{{ texts.hero.title }}</h2>
+        <p>{{ texts.hero.description }}</p>
         <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <a href="#projects" class="btn btn-primary">
+            {{ texts.hero.ctaPrimary }}
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            {{ texts.hero.ctaSecondary }}
+          </a>
         </div>
       </div>
 
@@ -26,7 +27,8 @@
 </template>
 
 <script setup lang="ts">
-// No script logic yet, purely presentational
+import { useTexts } from "@/composables/useTexts";
+const texts = useTexts();
 </script>
 
 <style scoped lang="scss">

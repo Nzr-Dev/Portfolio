@@ -1,23 +1,22 @@
-<template>
-  <footer class="footer">
-    <p class="footer-text">
-      © {{ currentYear }} Nazr Dev. All rights reserved.
-    </p>
-
-    <button class="back-to-top" @click="scrollToTop">↑ Back to Top</button>
-  </footer>
-</template>
-
 <script setup lang="ts">
+import { useTexts } from "@/composables/useTexts";
+const texts = useTexts();
+
 const currentYear = new Date().getFullYear();
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+const scrollTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 </script>
+
+<template>
+  <footer class="footer">
+    <p class="footer-text">{{ texts.footer.text }} © {{ currentYear }}</p>
+    <button class="btn btn-secondary" @click="scrollTop">
+      {{ texts.footer.button }}
+    </button>
+  </footer>
+</template>
 
 <style scoped lang="scss">
 .footer {
@@ -37,10 +36,10 @@ const scrollToTop = () => {
   font-size: 0.9rem;
 }
 
-.back-to-top {
-  background: var(--accent-color);
-  color: var(--bg-color);
-  border: none;
+.btn-secondary {
+  background: var(--accent-weak);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
   border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
   font-weight: 600;

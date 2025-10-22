@@ -5,11 +5,10 @@
 
       <div class="technologies-grid">
         <TechCard
-          v-for="(tech, index) in technologies"
+          v-for="(tech, index) in texts.technologies"
           :key="index"
           :name="tech.name"
-          :icon="tech.icon"
-          :color="tech.color"
+          :icon="tech.image"
         />
       </div>
     </div>
@@ -17,19 +16,10 @@
 </template>
 
 <script setup lang="ts">
+import { useTexts } from "@/composables/useTexts";
 import TechCard from "./TechCard.vue";
 
-const technologies = [
-  { name: "HTML5", icon: "fa-brands fa-html5", color: "#E34F26" },
-  { name: "CSS3", icon: "fa-brands fa-css3-alt", color: "#1572B6" },
-  { name: "JavaScript", icon: "fa-brands fa-js", color: "#F7DF1E" },
-  { name: "Vue.js", icon: "fa-brands fa-vuejs", color: "#42b883" },
-  { name: "Nuxt", icon: "fa-brands fa-nuxt", color: "#00DC82" },
-  { name: "TypeScript", icon: "fa-brands fa-ts", color: "#3178C6" },
-  { name: "Git", icon: "fa-brands fa-git-alt", color: "#F05032" },
-  { name: "GitHub", icon: "fa-brands fa-github", color: "#fff" },
-  { name: "Tailwind CSS", icon: "fa-brands fa-css3", color: "#38BDF8" },
-];
+const texts = useTexts();
 </script>
 
 <style scoped lang="scss">

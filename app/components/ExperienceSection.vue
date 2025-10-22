@@ -4,26 +4,41 @@
       <h2 class="section-title">Experience & Education</h2>
 
       <div class="experience-grid">
-        <ExperienceCard
-          title="Front-End Developer"
-          subtitle="Creative Web Studio"
-          date="2023 - Present"
-          description="Responsible for developing responsive websites using Vue, Nuxt, and SCSS. Collaborated with designers to create accessible, user-friendly interfaces."
-        />
+        <!-- Educación -->
+        <ExperienceCard title="Education">
+          <div
+            v-for="(item, index) in texts.experience.education"
+            :key="'edu' + index"
+            class="experience-item"
+          >
+            <h4>{{ item.title }}</h4>
+            <h5>{{ item.institution }} — {{ item.year }}</h5>
+            <p>{{ item.description }}</p>
+          </div>
+        </ExperienceCard>
 
-        <ExperienceCard
-          title="Web Development Bootcamp"
-          subtitle="CodeAcademy Pro"
-          date="2022 - 2023"
-          description="Completed an intensive full-stack development program focused on front-end technologies, UX/UI design, and modern JavaScript frameworks."
-        />
+        <!-- Experiencia laboral -->
+        <ExperienceCard title="Work Experience">
+          <div
+            v-for="(item, index) in texts.experience.work"
+            :key="'work' + index"
+            class="experience-item"
+          >
+            <h4>{{ item.title }}</h4>
+            <h5>{{ item.company }} — {{ item.year }}</h5>
+            <p>{{ item.description }}</p>
+          </div>
+        </ExperienceCard>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import ExperienceCard from "./ExperienceCard.vue";
+import { useTexts } from "@/composables/useTexts";
+import ExperienceCard from "@/components/ExperienceCard.vue";
+
+const texts = useTexts();
 </script>
 
 <style scoped lang="scss">
@@ -46,8 +61,14 @@ import ExperienceCard from "./ExperienceCard.vue";
 
 .experience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: stretch;
+  text-align: left;
+}
+
+/* Items internos dentro de cada tarjeta */
+.experience-item {
+  margin-bottom: 1.5rem;
 }
 </style>

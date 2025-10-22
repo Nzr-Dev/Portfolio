@@ -1,41 +1,8 @@
-<template>
-  <section id="contact" class="contact-section">
-    <div class="contact-container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-text">
-        I'm currently open to new opportunities. If you want to collaborate or
-        just say hi, feel free to reach out!
-      </p>
-
-      <form class="contact-form" @submit.prevent="handleSubmit">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input v-model="form.name" id="name" type="text" required />
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input v-model="form.email" id="email" type="email" required />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea
-            v-model="form.message"
-            id="message"
-            rows="4"
-            required
-          ></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
 import { ref } from "vue";
+import { useTexts } from "@/composables/useTexts";
+
+const texts = useTexts();
 
 const form = ref({
   name: "",
@@ -48,6 +15,41 @@ const handleSubmit = () => {
   form.value = { name: "", email: "", message: "" };
 };
 </script>
+
+<template>
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2 class="section-title">{{ texts.contact.title }}</h2>
+      <p class="contact-text">{{ texts.contact.description }}</p>
+
+      <form class="contact-form" @submit.prevent="handleSubmit">
+        <div class="form-group">
+          <label for="name">{{ texts.contact.labels.name }}</label>
+          <input v-model="form.name" id="name" type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">{{ texts.contact.labels.email }}</label>
+          <input v-model="form.email" id="email" type="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">{{ texts.contact.labels.message }}</label>
+          <textarea
+            v-model="form.message"
+            id="message"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          {{ texts.contact.button }}
+        </button>
+      </form>
+    </div>
+  </section>
+</template>
 
 <style scoped lang="scss">
 .contact-section {

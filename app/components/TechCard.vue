@@ -1,8 +1,9 @@
 <template>
-  <div class="tech-card" :style="{ borderColor: color }">
-    <div class="tech-icon" :style="{ color }">
-      <i :class="icon"></i>
-    </div>
+  <div
+    class="tech-card"
+    :style="{ backgroundColor: color || 'var(--card-color)' }"
+  >
+    <img :src="icon" :alt="name" class="tech-image" />
     <span class="tech-name">{{ name }}</span>
   </div>
 </template>
@@ -10,8 +11,8 @@
 <script setup lang="ts">
 interface Props {
   name: string;
-  icon: string; // clase del icono (por ejemplo 'fab fa-html5')
-  color: string; // color principal de la tecnología
+  icon: string; // URL de la imagen
+  color?: string; // opcional, puedes asignar colores distintos a cada tarjeta
 }
 
 defineProps<Props>();
@@ -23,12 +24,10 @@ defineProps<Props>();
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--card-color);
-  border: 2px solid transparent;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius);
   padding: 1.5rem;
   width: 120px;
-  height: 120px;
+  height: 140px;
   transition: var(--transition);
   cursor: default;
 
@@ -38,8 +37,10 @@ defineProps<Props>();
   }
 }
 
-.tech-icon {
-  font-size: 2.5rem;
+.tech-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
   margin-bottom: 0.75rem;
 }
 

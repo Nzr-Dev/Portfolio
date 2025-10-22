@@ -1,24 +1,28 @@
 <template>
   <div class="experience-card">
     <h3 class="experience-title">{{ title }}</h3>
-    <h4 class="experience-subtitle">{{ subtitle }}</h4>
-    <span class="experience-date">{{ date }}</span>
-    <p class="experience-description">{{ description }}</p>
+    <h4 class="experience-subtitle" v-if="subtitle">{{ subtitle }}</h4>
+    <span class="experience-date" v-if="date">{{ date }}</span>
+    <p class="experience-description" v-if="description">{{ description }}</p>
+
+    <!-- Aquí se renderiza el contenido que le pasemos desde fuera -->
+    <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
 interface Props {
   title: string;
-  subtitle: string;
-  date: string;
-  description: string;
+  subtitle?: string;
+  date?: string;
+  description?: string;
 }
 
 defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
+/* Tus estilos actuales se mantienen igual */
 .experience-card {
   background: var(--card-color);
   border-radius: var(--border-radius);
