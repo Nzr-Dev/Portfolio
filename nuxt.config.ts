@@ -11,4 +11,16 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
     rootId: "app",
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @import "@/assets/scss/variables";
+            @import "@/assets/scss/mixins";
+          `,
+        },
+      },
+    },
+  },
 });

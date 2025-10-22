@@ -1,65 +1,113 @@
 <template>
-  <div class="experience-card">
-    <h3 class="experience-title">{{ title }}</h3>
-    <h4 class="experience-subtitle" v-if="subtitle">{{ subtitle }}</h4>
-    <span class="experience-date" v-if="date">{{ date }}</span>
-    <p class="experience-description" v-if="description">{{ description }}</p>
-
-    <!-- Aquí se renderiza el contenido que le pasemos desde fuera -->
-    <slot></slot>
+  <div class="experiencia-bloque">
+    <h3 class="subtitulo-experiencia">{{ title }}</h3>
+    <div class="linea-tiempo">
+      <div v-for="(item, index) in items" :key="index" class="item-tiempo">
+        <div class="icono-tiempo">
+          <div class="icono-circulo">
+            <template v-if="item.icon">{{ item.icon }}</template>
+            <template v-else>{{ index + 1 }}</template>
+          </div>
+          <div v-if="index !== items.length - 1" class="linea-vertical"></div>
+        </div>
+        <div class="contenido-tiempo">
+          <h4>{{ item.title }}</h4>
+          <p class="texto-destacado">{{ item.highlight }}</p>
+          <p class="texto-secundario">{{ item.date }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-interface Props {
+interface TimeItem {
   title: string;
-  subtitle?: string;
-  date?: string;
-  description?: string;
+  highlight: string;
+  date: string;
+  icon?: string; // puede ser un icono o número
 }
 
-defineProps<Props>();
+interface Props {
+  title: string;
+  items: TimeItem[];
+}
+
+const props = defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
-/* Tus estilos actuales se mantienen igual */
-.experience-card {
-  background: var(--card-color);
-  border-radius: var(--border-radius);
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: var(--transition);
-  border: 1px solid transparent;
-  text-align: left;
+@import "@/assets/scss/variables";
+@import "@/assets/scss/mixins";
 
-  &:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-5px);
-  }
+.experiencia-bloque {
+  @include card-style;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
-  .experience-title {
-    font-family: var(--font-head);
-    font-size: 1.5rem;
+  .subtitulo-experiencia {
+    font-size: 1.75rem;
     color: var(--accent-color);
-    margin-bottom: 0.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
   }
 
-  .experience-subtitle {
-    color: var(--text-color);
-    margin-bottom: 0.25rem;
-  }
+  .linea-tiempo {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
-  .experience-date {
-    font-size: 0.9rem;
-    color: var(--muted-color);
-    display: block;
-    margin-bottom: 1rem;
-  }
+    .item-tiempo {
+      display: flex;
 
-  .experience-description {
-    font-size: 1rem;
-    color: var(--text-color);
-    line-height: 1.5;
+      .icono-tiempo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 1rem;
+
+        .icono-circulo {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--accent-color);
+          color: var(--bg-color);
+          font-weight: 700;
+          @include neon-shadow;
+        }
+
+        .linea-vertical {
+          width: 2px;
+          flex-grow: 1;
+          background-color: rgba(100, 255, 218, 0.5);
+          margin-top: 0.25rem;
+        }
+      }
+
+      .contenido-tiempo {
+        h4 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--text-color);
+          margin: 0;
+        }
+        .texto-destacado {
+          color: var(--accent-color);
+          font-size: 0.9rem;
+          margin-top: 0.25rem;
+        }
+        .texto-secundario {
+          color: var(--muted-color);
+          font-size: 0.9rem;
+          margin-top: 0.5rem;
+          line-height: 1.5;
+        }
+      }
+    }
   }
 }
 </style>

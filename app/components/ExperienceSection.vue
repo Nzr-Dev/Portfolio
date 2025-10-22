@@ -1,74 +1,85 @@
 <template>
-  <section id="experience" class="experience-section">
-    <div class="experience-container">
-      <h2 class="section-title">Experience & Education</h2>
+  <section id="experiencia" class="seccion-experiencia">
+    <div class="experiencia-contenedor">
+      <h2 class="titulo-seccion">Experiencia</h2>
 
-      <div class="experience-grid">
-        <!-- Educación -->
-        <ExperienceCard title="Education">
-          <div
-            v-for="(item, index) in texts.experience.education"
-            :key="'edu' + index"
-            class="experience-item"
-          >
-            <h4>{{ item.title }}</h4>
-            <h5>{{ item.institution }} — {{ item.year }}</h5>
-            <p>{{ item.description }}</p>
-          </div>
-        </ExperienceCard>
+      <div class="experiencia-grid">
+        <!-- Estudios -->
+        <ExperienceCard
+          title="Estudios, Títulos y Formación"
+          :items="educationItems"
+        />
 
-        <!-- Experiencia laboral -->
-        <ExperienceCard title="Work Experience">
-          <div
-            v-for="(item, index) in texts.experience.work"
-            :key="'work' + index"
-            class="experience-item"
-          >
-            <h4>{{ item.title }}</h4>
-            <h5>{{ item.company }} — {{ item.year }}</h5>
-            <p>{{ item.description }}</p>
-          </div>
-        </ExperienceCard>
+        <!-- Experiencia Laboral -->
+        <ExperienceCard title="Experiencia Laboral" :items="workItems" />
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { useTexts } from "@/composables/useTexts";
-import ExperienceCard from "@/components/ExperienceCard.vue";
+import ExperienceCard from "./ExperienceCard.vue";
 
-const texts = useTexts();
+const educationItems = [
+  {
+    title: "Grado en Ingeniería Informática",
+    highlight: "Universidad Politécnica",
+    date: "2015 - 2019",
+  },
+  {
+    title: "Curso Avanzado de React",
+    highlight: "Plataforma Online de Cursos",
+    date: "2020",
+  },
+];
+
+const workItems = [
+  {
+    title: "Frontend Developer en Tech Solutions",
+    highlight: "Enero 2021 - Presente",
+    date: "Desarrollo y mantenimiento de aplicaciones web interactivas utilizando React y Redux. Colaboración con equipos de UI/UX para implementar diseños pixel-perfect.",
+    icon: '<span class="material-symbols-outlined" aria-hidden="true">work</span>',
+  },
+  {
+    title: "Web Developer Jr. en Innovate Co.",
+    highlight: "Junio 2019 - Diciembre 2020",
+    date: "Construcción de sitios web responsivos y optimizados para clientes de diversas industrias, utilizando principalmente HTML, CSS y JavaScript.",
+    icon: '<span class="material-symbols-outlined" aria-hidden="true">work</span>',
+  },
+];
 </script>
 
 <style scoped lang="scss">
-.experience-section {
+@import "@/assets/scss/variables";
+@import "@/assets/scss/mixins";
+
+.seccion-experiencia {
   padding: 5rem 1.5rem;
+
+  .experiencia-contenedor {
+    max-width: var(--max-width);
+    margin: 0 auto;
+
+    .titulo-seccion {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .experiencia-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
-.experience-container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 3rem;
-}
-
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  align-items: stretch;
-  text-align: left;
-}
-
-/* Items internos dentro de cada tarjeta */
-.experience-item {
-  margin-bottom: 1.5rem;
+/* Responsive */
+@media (min-width: 768px) {
+  .experiencia-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>

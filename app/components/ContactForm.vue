@@ -1,132 +1,227 @@
+<template>
+  <section id="contacto" class="seccion-contacto">
+    <div class="contacto-contenedor">
+      <h2 class="titulo-seccion">Contacto</h2>
+
+      <div class="contacto-card">
+        <!-- FORMULARIO -->
+        <form
+          action="#"
+          class="formulario-contacto"
+          aria-label="Formulario de contacto"
+        >
+          <div class="campo-formulario">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" v-model="form.name" />
+          </div>
+
+          <div class="campo-formulario">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" v-model="form.email" />
+          </div>
+
+          <div class="campo-formulario">
+            <label for="message">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              v-model="form.message"
+            ></textarea>
+          </div>
+
+          <div class="campo-formulario">
+            <button
+              type="submit"
+              class="btn-enviar"
+              @click.prevent="submitForm"
+            >
+              Enviar Mensaje
+            </button>
+          </div>
+        </form>
+
+        <!-- REDES SOCIALES -->
+        <div class="redes-sociales" aria-label="Redes sociales">
+          <p>También puedes encontrarme en:</p>
+          <div class="iconos-redes">
+            <a href="#" class="icono-red" aria-label="GitHub">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
+                c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
+                A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38
+                13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07
+                0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+                3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
+            </a>
+
+            <a href="#" class="icono-red" aria-label="LinkedIn">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2
+                2 0 0 0-2-2 2 2 0 0 0-2
+                2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+
+            <a href="#" class="icono-red" aria-label="Twitter">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14
+                1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+                10.66 0 0 1 3 4s-4 9 5 13a11.64
+                11.64 0 0 1-7 2c9 5 20 0
+                20-11.5a4.5 4.5 0 0 0-.08-.83A7.72
+                7.72 0 0 0 23 3z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
 <script setup lang="ts">
-import { ref } from "vue";
-import { useTexts } from "@/composables/useTexts";
+import { reactive } from "vue";
 
-const texts = useTexts();
-
-const form = ref({
+const form = reactive({
   name: "",
   email: "",
   message: "",
 });
 
-const handleSubmit = () => {
-  alert(`Thanks ${form.value.name}! Your message has been sent (simulated).`);
-  form.value = { name: "", email: "", message: "" };
-};
+function submitForm() {
+  // Aquí puedes agregar la lógica de envío de formulario
+  console.log("Formulario enviado:", form);
+}
 </script>
 
-<template>
-  <section id="contact" class="contact-section">
-    <div class="contact-container">
-      <h2 class="section-title">{{ texts.contact.title }}</h2>
-      <p class="contact-text">{{ texts.contact.description }}</p>
-
-      <form class="contact-form" @submit.prevent="handleSubmit">
-        <div class="form-group">
-          <label for="name">{{ texts.contact.labels.name }}</label>
-          <input v-model="form.name" id="name" type="text" required />
-        </div>
-
-        <div class="form-group">
-          <label for="email">{{ texts.contact.labels.email }}</label>
-          <input v-model="form.email" id="email" type="email" required />
-        </div>
-
-        <div class="form-group">
-          <label for="message">{{ texts.contact.labels.message }}</label>
-          <textarea
-            v-model="form.message"
-            id="message"
-            rows="4"
-            required
-          ></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">
-          {{ texts.contact.button }}
-        </button>
-      </form>
-    </div>
-  </section>
-</template>
-
 <style scoped lang="scss">
-.contact-section {
+@import "@/assets/scss/variables";
+@import "@/assets/scss/mixins";
+
+.seccion-contacto {
   padding: 5rem 1.5rem;
-  background: var(--card-color);
-}
 
-.contact-container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
+  .contacto-contenedor {
+    max-width: var(--max-width);
+    margin: 0 auto;
 
-.section-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--accent-color);
-  margin-bottom: 2rem;
-}
-
-.contact-text {
-  font-size: 1.1rem;
-  color: var(--muted-color);
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-
-  label {
-    color: var(--text-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  input,
-  textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--muted-color);
-    border-radius: var(--border-radius);
-    background: #0a192f;
-    color: var(--text-color);
-    font-size: 1rem;
-    transition: var(--transition);
-
-    &:focus {
-      outline: none;
-      border-color: var(--accent-color);
-      box-shadow: 0 0 5px var(--accent-color);
+    .titulo-seccion {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 3rem;
     }
-  }
-}
 
-.submit-btn {
-  align-self: center;
-  background: var(--accent-color);
-  color: #0a192f;
-  border: none;
-  border-radius: var(--border-radius);
-  padding: 0.75rem 2rem;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: var(--transition);
+    .contacto-card {
+      @include card-style;
+      text-align: center;
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-neon);
+      .formulario-contacto {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .campo-formulario {
+          text-align: left;
+
+          label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--muted-color);
+            margin-bottom: 0.25rem;
+          }
+
+          input,
+          textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--card-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s, box-shadow 0.3s;
+
+            &:focus {
+              border-color: var(--accent-color);
+              @include neon-shadow;
+            }
+          }
+        }
+
+        .btn-enviar {
+          width: 100%;
+          padding: 0.75rem 1rem;
+          border: none;
+          border-radius: 0.5rem;
+          background: var(--accent-color);
+          color: var(--bg-color);
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: var(--transition);
+
+          &:hover {
+            @include neon-shadow;
+          }
+        }
+      }
+
+      .redes-sociales {
+        margin-top: 2rem;
+        p {
+          color: var(--muted-color);
+          margin-bottom: 1rem;
+        }
+
+        .iconos-redes {
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+
+          .icono-red svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-color);
+            transition: stroke 0.3s;
+          }
+
+          .icono-red:hover svg {
+            stroke: var(--accent-color);
+          }
+        }
+      }
+    }
   }
 }
 </style>

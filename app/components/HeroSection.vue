@@ -1,25 +1,30 @@
 <template>
-  <section id="home" class="hero-section">
-    <div class="hero-content">
-      <!-- Texto principal -->
-      <div class="hero-text">
-        <h1>{{ texts.hero.greeting }}</h1>
-        <h2>{{ texts.hero.title }}</h2>
-        <p>{{ texts.hero.description }}</p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">
-            {{ texts.hero.ctaPrimary }}
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            {{ texts.hero.ctaSecondary }}
-          </a>
+  <section id="inicio" class="hero">
+    <div class="hero__content">
+      <!-- TEXTO -->
+      <div class="hero__text">
+        <h1>Juan Pérez</h1>
+        <h2>Desarrollador Web Frontend</h2>
+        <p>
+          Creando experiencias web futuristas con un toque de neón. Mi objetivo
+          es combinar diseño y funcionalidad para construir interfaces
+          intuitivas y atractivas.
+        </p>
+
+        <div class="hero__buttons">
+          <a href="#proyectos" class="btn btn--primary">Ver mis proyectos</a>
+          <a href="#contacto" class="btn btn--secondary">Contactarme</a>
         </div>
       </div>
 
-      <!-- Imagen -->
-      <div class="hero-photo">
-        <div class="photo-border">
-          <img src="/profile.webp" alt="Profile photo" />
+      <!-- FOTO -->
+      <div class="hero__photo">
+        <div class="hero__photo-border">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlJkYcygIP2DWrddLpQtACUY0xdJ3cUuKknwWrcxjskyMEDi2K-ItR8DV8Dj-TrRN3gkTezQOq6iGuKssnBMWKGTP0a0C5f4yPic6Yo7KROlAcnsq-In8eMcVxviqQKzWVNENRlKNQt3P9JCfeVqdN8s2Vew60Ox0wDuh_sTpxzB2EA6Qfg6QUttNJ-_3HOMDrhfAU2NnGbc12vMapizyZe-92AoaC21yH7GXrC-LtJ0U-qcbUQraonJbluFBYr_LCAeZWe66WINtq"
+            alt="Foto de perfil de Juan Pérez"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -28,59 +33,58 @@
 
 <script setup lang="ts">
 import { useTexts } from "@/composables/useTexts";
+
 const texts = useTexts();
 </script>
 
 <style scoped lang="scss">
-.hero-section {
+.hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 6rem 1.5rem 1.5rem;
-}
+  background: var(--bg-color);
 
-.hero-content {
-  width: 100%;
-  max-width: var(--max-width);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-  justify-content: center;
-}
+  &__content {
+    width: 100%;
+    max-width: var(--max-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    justify-content: center;
+    text-align: center;
+  }
 
-.hero-text {
-  text-align: center;
-  max-width: 600px;
+  &__text {
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-head);
+    }
 
-  h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #fff;
-
-    .highlight {
+    h2 {
+      font-size: 1.75rem;
       color: var(--accent-color);
+      margin-top: 1rem;
+      font-family: var(--font-head);
+    }
+
+    p {
+      margin-top: 1rem;
+      color: var(--muted-color);
+      line-height: 1.6;
     }
   }
 
-  h2 {
-    font-size: 1.75rem;
-    color: var(--accent-color);
-    margin-top: 1rem;
-  }
-
-  p {
-    margin-top: 1rem;
-    color: var(--muted-color);
-    line-height: 1.6;
-  }
-
-  .hero-buttons {
+  &__buttons {
+    margin-top: 1.5rem;
     display: flex;
-    justify-content: center;
     gap: 1rem;
-    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .btn {
@@ -93,71 +97,74 @@ const texts = useTexts();
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: var(--transition);
-    text-transform: none;
+    text-decoration: none;
+    cursor: pointer;
 
-    &.btn-primary {
+    &--primary {
       background: var(--accent-color);
       color: var(--bg-color);
+
+      &:hover {
+        @include neon-shadow;
+        transform: translateY(-2px);
+      }
     }
 
-    &.btn-secondary {
+    &--secondary {
       background: var(--card-color);
       color: var(--accent-color);
       border: 1px solid var(--accent-color);
-    }
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-neon);
-    }
-  }
-}
-
-.hero-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .photo-border {
-    width: 16rem;
-    height: 16rem;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--card-color);
-    border: 4px solid var(--accent-color);
-    box-shadow: var(--shadow-neon);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      &:hover {
+        @include neon-shadow;
+        transform: translateY(-2px);
+        background: var(--accent-weak);
+      }
     }
   }
-}
 
-/* RESPONSIVE */
-@media (min-width: 768px) {
-  .hero-content {
-    flex-direction: row;
-    justify-content: space-between;
+  &__photo {
+    display: flex;
+    justify-content: center;
     align-items: center;
+
+    &-border {
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--card-color);
+      border: 4px solid var(--accent-color);
+      @include neon-shadow;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 
-  .hero-text {
-    text-align: left;
+  @media (min-width: 768px) {
+    &__content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
 
-    h1 {
+    &__text h1 {
       font-size: 4.5rem;
     }
 
-    h2 {
+    &__text h2 {
       font-size: 2rem;
     }
-  }
 
-  .photo-border {
-    width: 20rem;
-    height: 20rem;
+    &__photo-border {
+      width: 20rem;
+      height: 20rem;
+    }
   }
 }
 </style>
