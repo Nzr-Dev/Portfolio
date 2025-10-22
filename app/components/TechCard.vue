@@ -13,8 +13,7 @@ defineProps({
 });
 </script>
 
-<style scoped>
-/* Reutiliza las clases CSS globales */
+<style scoped lang="scss">
 .tecnologia {
   background: var(--card-color);
   border-radius: var(--border-radius);
@@ -22,15 +21,18 @@ defineProps({
   transition: var(--transition);
   text-align: center;
 }
+
 .tecnologia:hover {
   background: rgba(26, 122, 99, 0.7);
   box-shadow: 0 0 10px rgba(26, 122, 99, 0.7);
 }
+
 .tecnologia img {
   width: 5rem;
   height: 5rem;
   object-fit: contain;
 }
+
 .tecnologia p {
   margin-top: 1rem;
   color: var(--text-color);

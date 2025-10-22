@@ -5,7 +5,12 @@
       <div v-for="(item, index) in items" :key="index" class="item-tiempo">
         <div class="icono-tiempo">
           <div class="icono-circulo">
-            <template v-if="item.icon">{{ item.icon }}</template>
+            <span
+              v-if="item.icon"
+              class="material-symbols-outlined"
+              aria-hidden="true"
+              >work</span
+            >
             <template v-else>{{ index + 1 }}</template>
           </div>
           <div v-if="index !== items.length - 1" class="linea-vertical"></div>
@@ -25,7 +30,7 @@ interface TimeItem {
   title: string;
   highlight: string;
   date: string;
-  icon?: string; // puede ser un icono o número
+  icon?: boolean; // indica si debe mostrar icono en lugar de número
 }
 
 interface Props {

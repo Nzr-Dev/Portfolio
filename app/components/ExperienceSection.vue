@@ -25,11 +25,13 @@ const educationItems = [
     title: "Grado en Ingeniería Informática",
     highlight: "Universidad Politécnica",
     date: "2015 - 2019",
+    icon: false,
   },
   {
     title: "Curso Avanzado de React",
     highlight: "Plataforma Online de Cursos",
     date: "2020",
+    icon: false,
   },
 ];
 
@@ -38,13 +40,13 @@ const workItems = [
     title: "Frontend Developer en Tech Solutions",
     highlight: "Enero 2021 - Presente",
     date: "Desarrollo y mantenimiento de aplicaciones web interactivas utilizando React y Redux. Colaboración con equipos de UI/UX para implementar diseños pixel-perfect.",
-    icon: '<span class="material-symbols-outlined" aria-hidden="true">work</span>',
+    icon: true,
   },
   {
     title: "Web Developer Jr. en Innovate Co.",
     highlight: "Junio 2019 - Diciembre 2020",
     date: "Construcción de sitios web responsivos y optimizados para clientes de diversas industrias, utilizando principalmente HTML, CSS y JavaScript.",
-    icon: '<span class="material-symbols-outlined" aria-hidden="true">work</span>',
+    icon: true,
   },
 ];
 </script>

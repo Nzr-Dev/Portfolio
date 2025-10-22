@@ -1,8 +1,8 @@
 <template>
-  <section id="inicio" class="hero">
-    <div class="hero__content">
+  <section id="inicio" class="seccion-inicio">
+    <div class="inicio-contenido">
       <!-- TEXTO -->
-      <div class="hero__text">
+      <div class="inicio-texto">
         <h1>Juan Pérez</h1>
         <h2>Desarrollador Web Frontend</h2>
         <p>
@@ -11,15 +11,15 @@
           intuitivas y atractivas.
         </p>
 
-        <div class="hero__buttons">
-          <a href="#proyectos" class="btn btn--primary">Ver mis proyectos</a>
-          <a href="#contacto" class="btn btn--secondary">Contactarme</a>
+        <div class="inicio-botones">
+          <a href="#proyectos" class="btn btn-principal">Ver mis proyectos</a>
+          <a href="#contacto" class="btn btn-secundario">Contactarme</a>
         </div>
       </div>
 
       <!-- FOTO -->
-      <div class="hero__photo">
-        <div class="hero__photo-border">
+      <div class="inicio-foto">
+        <div class="foto-borde">
           <img
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlJkYcygIP2DWrddLpQtACUY0xdJ3cUuKknwWrcxjskyMEDi2K-ItR8DV8Dj-TrRN3gkTezQOq6iGuKssnBMWKGTP0a0C5f4yPic6Yo7KROlAcnsq-In8eMcVxviqQKzWVNENRlKNQt3P9JCfeVqdN8s2Vew60Ox0wDuh_sTpxzB2EA6Qfg6QUttNJ-_3HOMDrhfAU2NnGbc12vMapizyZe-92AoaC21yH7GXrC-LtJ0U-qcbUQraonJbluFBYr_LCAeZWe66WINtq"
             alt="Foto de perfil de Juan Pérez"
@@ -32,13 +32,11 @@
 </template>
 
 <script setup lang="ts">
-import { useTexts } from "@/composables/useTexts";
-
-const texts = useTexts();
+// No se necesita lógica adicional
 </script>
 
 <style scoped lang="scss">
-.hero {
+.seccion-inicio {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -46,7 +44,7 @@ const texts = useTexts();
   padding: 6rem 1.5rem 1.5rem;
   background: var(--bg-color);
 
-  &__content {
+  .inicio-contenido {
     width: 100%;
     max-width: var(--max-width);
     display: flex;
@@ -57,7 +55,7 @@ const texts = useTexts();
     text-align: center;
   }
 
-  &__text {
+  .inicio-texto {
     h1 {
       font-size: 3rem;
       font-weight: 700;
@@ -79,7 +77,7 @@ const texts = useTexts();
     }
   }
 
-  &__buttons {
+  .inicio-botones {
     margin-top: 1.5rem;
     display: flex;
     gap: 1rem;
@@ -100,42 +98,42 @@ const texts = useTexts();
     text-decoration: none;
     cursor: pointer;
 
-    &--primary {
+    &-principal {
       background: var(--accent-color);
       color: var(--bg-color);
 
       &:hover {
-        @include neon-shadow;
+        box-shadow: var(--shadow-neon);
         transform: translateY(-2px);
       }
     }
 
-    &--secondary {
+    &-secundario {
       background: var(--card-color);
       color: var(--accent-color);
       border: 1px solid var(--accent-color);
 
       &:hover {
-        @include neon-shadow;
+        box-shadow: var(--shadow-neon);
         transform: translateY(-2px);
         background: var(--accent-weak);
       }
     }
   }
 
-  &__photo {
+  .inicio-foto {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    &-border {
+    .foto-borde {
       width: 16rem;
       height: 16rem;
       border-radius: 50%;
       overflow: hidden;
       background: var(--card-color);
       border: 4px solid var(--accent-color);
-      @include neon-shadow;
+      box-shadow: var(--shadow-neon);
 
       img {
         width: 100%;
@@ -146,22 +144,22 @@ const texts = useTexts();
   }
 
   @media (min-width: 768px) {
-    &__content {
+    .inicio-contenido {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       text-align: left;
     }
 
-    &__text h1 {
+    .inicio-texto h1 {
       font-size: 4.5rem;
     }
 
-    &__text h2 {
+    .inicio-texto h2 {
       font-size: 2rem;
     }
 
-    &__photo-border {
+    .foto-borde {
       width: 20rem;
       height: 20rem;
     }

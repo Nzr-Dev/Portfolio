@@ -1,25 +1,19 @@
 <template>
-  <div class="project-card">
+  <div class="proyecto">
     <div
-      class="project-image"
+      class="proyecto-imagen"
       :style="{ backgroundImage: `url(${image})` }"
     ></div>
 
-    <div class="project-content">
-      <div class="project-header">
+    <div class="proyecto-texto">
+      <div class="proyecto-cabecera">
         <h3>{{ title }}</h3>
-        <div class="project-links">
-          <a
-            :href="liveUrl"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-primary"
-            >Ver proyecto</a
-          >
+        <div class="proyecto-enlaces">
+          <a :href="liveUrl" class="btn btn-secundario rojo">Ver proyecto</a>
         </div>
       </div>
 
-      <p class="project-description">{{ description }}</p>
+      <p class="proyecto-descripcion">{{ description }}</p>
     </div>
   </div>
 </template>
@@ -36,7 +30,7 @@ defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
-.project-card {
+.proyecto {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -51,7 +45,7 @@ defineProps<Props>();
   }
 }
 
-.project-image {
+.proyecto-imagen {
   width: 100%;
   aspect-ratio: 16/9;
   background-position: center;
@@ -60,11 +54,11 @@ defineProps<Props>();
   border-radius: 0.5rem;
 }
 
-.project-content {
+.proyecto-texto {
   width: 100%;
 }
 
-.project-header {
+.proyecto-cabecera {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -78,13 +72,13 @@ defineProps<Props>();
   }
 }
 
-.project-description {
+.proyecto-descripcion {
   margin-top: 1rem;
   color: var(--muted-color);
   line-height: 1.6;
 }
 
-.project-links {
+.proyecto-enlaces {
   display: flex;
   gap: 0.75rem;
 }
@@ -100,29 +94,37 @@ defineProps<Props>();
   font-size: 0.9rem;
   transition: var(--transition);
   cursor: pointer;
-  border: none;
+  text-decoration: none;
 
-  &.btn-primary {
-    background: var(--accent-color);
-    color: var(--bg-color);
-  }
+  &.btn-secundario {
+    background: var(--card-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
 
-  &:hover {
-    box-shadow: var(--shadow-neon);
+    &.rojo {
+      background: var(--accent-color);
+      color: var(--bg-color);
+      border: none;
+    }
+
+    &:hover {
+      box-shadow: var(--shadow-neon);
+      transform: translateY(-2px);
+    }
   }
 }
 
 @media (min-width: 768px) {
-  .project-card {
+  .proyecto {
     flex-direction: row;
     align-items: center;
   }
 
-  .project-image {
+  .proyecto-imagen {
     width: 50%;
   }
 
-  .project-content {
+  .proyecto-texto {
     width: 50%;
   }
 }

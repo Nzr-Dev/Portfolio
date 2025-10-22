@@ -1,11 +1,11 @@
 <template>
   <nav class="navbar">
-    <div class="nav-links">
-      <a href="#home">Inicio</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#technologies">Tecnologías</a>
-      <a href="#experience">Experiencia</a>
-      <a href="#contact">Contacto</a>
+    <div class="nav-enlaces">
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#tecnologias">Tecnologías</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#contacto">Contacto</a>
     </div>
   </nav>
 </template>
@@ -21,7 +21,7 @@
   padding: 1rem 0;
 }
 
-.nav-links {
+.nav-enlaces {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
@@ -30,14 +30,14 @@
   padding: 0 1rem;
 }
 
-.nav-links a {
+.nav-enlaces a {
   color: var(--text-color);
   font-weight: 500;
   text-decoration: none;
   transition: color 0.25s ease;
 }
 
-.nav-links a:hover {
+.nav-enlaces a:hover {
   color: var(--accent-color);
 }
 </style>
