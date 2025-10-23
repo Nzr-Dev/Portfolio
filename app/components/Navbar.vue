@@ -61,6 +61,7 @@ const handleNavKeydown = (href: string) => {
   padding: 0.5rem 0.25rem;
   font-size: 1.1rem;
   position: relative;
+  -webkit-tap-highlight-color: transparent; /* Elimina el fondo azul en móviles */
 
   &::after {
     content: "";
@@ -89,8 +90,8 @@ const handleNavKeydown = (href: string) => {
 @media (max-width: 640px) {
   .nav-links {
     display: flex;
-    justify-content: space-around; /* Distribuye el espacio uniformemente alrededor de los elementos */
-    gap: 0.5rem; /* Un pequeño gap para separación visual */
+    justify-content: space-around;
+    gap: 0.5rem;
     flex-wrap: nowrap;
     padding: 0 0.5rem;
     width: 100%;
@@ -98,11 +99,12 @@ const handleNavKeydown = (href: string) => {
   }
 
   .nav-link {
-    font-size: 1rem; /* Tamaño de fuente óptimo */
+    font-size: 1rem;
     white-space: nowrap;
     padding: 0.5rem 0.1rem;
-    flex: 0 1 auto; /* Permite ajuste pero sin crecimiento excesivo */
-    text-align: center; /* Asegura que el texto esté centrado en cada enlace */
+    flex: 0 1 auto;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent; /* Aseguramos que también se aplique en móviles */
   }
 
   /* Para pantallas más pequeñas, ajustamos el tamaño de fuente */
