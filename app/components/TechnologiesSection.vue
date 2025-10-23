@@ -1,7 +1,7 @@
 <template>
-  <section 
-    id="technologies" 
-    class="section" 
+  <section
+    id="technologies"
+    class="section"
     role="region"
     aria-labelledby="technologies-heading"
   >
@@ -9,7 +9,7 @@
       <h2 id="technologies-heading" class="section__title technologies-title">
         {{ texts.technologies.title }}
       </h2>
-      
+
       <div class="technologies-grid">
         <TechCard
           v-for="tech in texts.technologies.items"
@@ -25,14 +25,14 @@
 
 <script setup lang="ts">
 import TechCard from "./TechCard.vue";
-import { useTexts } from '@/composables/useTexts'
+import { useTexts } from "@/composables/useTexts";
 
-const texts = useTexts()
+const texts = useTexts();
 </script>
 
 <style scoped lang="scss">
 .technologies-title {
-  font-weight: 800; 
+  font-weight: 800;
 }
 
 .technologies-grid {
@@ -58,6 +58,14 @@ const texts = useTexts()
   .technologies-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 2.5rem;
+  }
+}
+
+/* Añadimos márgenes laterales solo para móviles */
+@media (max-width: 767px) {
+  .section {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 </style>
