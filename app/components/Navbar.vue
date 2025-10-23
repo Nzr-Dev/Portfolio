@@ -41,16 +41,18 @@ const handleNavKeydown = (href: string) => {
   background: rgba(10, 25, 47, 0.8);
   backdrop-filter: blur(6px);
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
 }
 
 .nav-links {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 0.5rem;
   padding: 0 1rem;
+  width: 100%;
+  overflow: hidden;
 }
 
 .nav-link {
@@ -58,10 +60,15 @@ const handleNavKeydown = (href: string) => {
   font-weight: 500;
   transition: all 0.3s ease;
   text-decoration: none;
-  padding: 0.5rem 0.25rem;
-  font-size: 1.1rem;
+  padding: 0.4rem 0.1rem;
+  /* Tamaño de letra máximo posible con responsividad garantizada */
+  font-size: clamp(0.75rem, 3.5vw, 1.1rem);
   position: relative;
-  -webkit-tap-highlight-color: transparent; /* Elimina el fondo azul en móviles */
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+  text-align: center;
+  flex: 1 1 auto;
+  min-width: 0;
 
   &::after {
     content: "";
@@ -87,48 +94,77 @@ const handleNavKeydown = (href: string) => {
   }
 }
 
-@media (max-width: 640px) {
+/* Ajustes progresivos que maximizan el tamaño de letra */
+@media (max-width: 1024px) {
   .nav-links {
-    display: flex;
-    justify-content: space-around;
-    gap: 0.5rem;
-    flex-wrap: nowrap;
-    padding: 0 0.5rem;
-    width: 100%;
-    max-width: 100%;
+    gap: 0.4rem;
+    padding: 0 0.8rem;
   }
 
   .nav-link {
-    font-size: 1rem;
-    white-space: nowrap;
-    padding: 0.5rem 0.1rem;
-    flex: 0 1 auto;
-    text-align: center;
-    -webkit-tap-highlight-color: transparent; /* Aseguramos que también se aplique en móviles */
+    font-size: clamp(0.7rem, 3.2vw, 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 0.3rem;
+    padding: 0 0.6rem;
   }
 
-  /* Para pantallas más pequeñas, ajustamos el tamaño de fuente */
-  @media (max-width: 400px) {
-    .nav-link {
-      font-size: 0.95rem;
-    }
+  .nav-link {
+    font-size: clamp(0.65rem, 3vw, 0.95rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-links {
+    gap: 0.2rem;
+    padding: 0 0.5rem;
   }
 
-  @media (max-width: 360px) {
-    .nav-link {
-      font-size: 0.9rem;
-    }
+  .nav-link {
+    font-size: clamp(0.6rem, 2.8vw, 0.9rem);
+  }
+}
 
-    .nav-links {
-      gap: 0.3rem;
-      padding: 0 0.3rem;
-    }
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 0.15rem;
+    padding: 0 0.4rem;
   }
 
-  @media (max-width: 320px) {
-    .nav-link {
-      font-size: 0.85rem;
-    }
+  .nav-link {
+    font-size: clamp(0.55rem, 2.6vw, 0.85rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-links {
+    gap: 0.1rem;
+    padding: 0 0.3rem;
+  }
+
+  .nav-link {
+    font-size: clamp(0.5rem, 2.4vw, 0.8rem);
+  }
+}
+
+@media (max-width: 320px) {
+  .nav-links {
+    gap: 0.05rem;
+    padding: 0 0.25rem;
+  }
+
+  .nav-link {
+    font-size: clamp(0.45rem, 2.2vw, 0.75rem);
+  }
+}
+
+/* Para pantallas muy grandes, tamaño máximo fijo */
+@media (min-width: 1400px) {
+  .nav-link {
+    font-size: 1.1rem;
   }
 }
 </style>

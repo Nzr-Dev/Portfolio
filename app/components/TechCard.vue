@@ -38,17 +38,18 @@ const handleImageLoad = (event: Event) => {
 .tech-card {
   background: var(--card-color);
   border-radius: var(--border-radius);
-  padding: 1.5rem 1rem;
+  padding: 1rem 0.5rem;
   transition: var(--transition);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 140px;
+  min-height: 120px;
   aspect-ratio: 4/3;
   border: 2px solid transparent;
-  position: relative;
+  width: 100%;
+  margin: 0 auto;
 
   &:hover {
     border-color: var(--accent-color);
@@ -61,7 +62,7 @@ const handleImageLoad = (event: Event) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
+  height: 60px;
   width: 100%;
   margin-bottom: 0.5rem;
   flex-grow: 1;
@@ -70,7 +71,7 @@ const handleImageLoad = (event: Event) => {
 .tech-card__image {
   width: auto;
   height: 100%;
-  max-width: 100%;
+  max-width: 80%;
   max-height: 100%;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -84,21 +85,41 @@ const handleImageLoad = (event: Event) => {
   color: var(--text-color);
   font-weight: 500;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   width: 100%;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0.25rem;
 }
 
 @media (min-width: 768px) {
   .tech-card {
-    padding: 2.5rem 1rem;
-    min-height: 160px;
+    padding: 1.5rem 0.75rem;
+    min-height: 140px;
   }
 
   .tech-card__image-container {
-    height: 90px;
+    height: 70px;
     margin-bottom: 0.75rem;
-    flex-grow: 1;
+  }
+
+  .tech-card__name {
+    font-size: 1rem;
+  }
+}
+
+/* En desktop, las tarjetas se expanden para llenar el espacio disponible */
+@media (min-width: 1024px) {
+  .tech-card {
+    padding: 2rem 1rem;
+    min-height: 160px;
+    /* Eliminamos max-width para permitir que se expandan */
+  }
+
+  .tech-card__image-container {
+    height: 80px;
   }
 
   .tech-card__name {

@@ -56,72 +56,84 @@ const texts = useTexts();
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 6rem 1.5rem 2rem;
+  padding: 6rem 1rem 2rem; /* Reducimos padding lateral en móvil */
 
   &__container {
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
+    padding: 0 1rem; /* Añadimos padding interno */
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem; /* Reducimos gap en móvil */
     text-align: center;
   }
 
   &__text {
-    max-width: 650px;
+    max-width: 100%; /* Permitimos que ocupe todo el ancho disponible */
     width: 100%;
 
     .hero__name {
-      font-size: 3.5rem;
+      /* Tamaño de fuente responsivo */
+      font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 800;
       color: #fff;
       margin-bottom: 0.5rem;
-      text-align: center; /* Centrado en móvil */
+      text-align: center;
+      line-height: 1.1;
     }
 
     .hero__title {
-      font-size: 2rem;
+      /* Tamaño de fuente responsivo */
+      font-size: clamp(1.5rem, 5vw, 2.25rem);
       color: var(--accent-color);
       margin-bottom: 1rem;
-      text-align: center; /* Centrado en móvil */
+      text-align: center;
       font-weight: 600;
+      line-height: 1.2;
     }
 
     .hero__description {
       color: var(--muted-color);
       margin-bottom: 2rem;
       line-height: 1.7;
-      text-align: center; /* Centrado en móvil */
-      font-size: 1.1rem;
+      text-align: center;
+      /* Tamaño de fuente responsivo */
+      font-size: clamp(1rem, 3vw, 1.15rem);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
   &__buttons {
     display: flex;
-    gap: 1.25rem;
-    justify-content: center; /* Centrado en móvil */
+    gap: 1rem; /* Reducimos gap en móvil */
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
 
     .btn {
       height: 3.5rem;
-      padding: 0 2rem;
-      font-size: 1.1rem;
+      padding: 0 1.5rem; /* Reducimos padding en móvil */
+      font-size: 1rem; /* Tamaño base */
+      /* Tamaño de fuente responsivo para botones */
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
     }
   }
 
   &__image {
     display: flex;
-    justify-content: center; /* Asegura que la imagen esté centrada */
+    justify-content: center;
 
     .image__border {
-      width: 18rem;
-      height: 18rem;
+      /* Tamaño responsivo para la imagen */
+      width: clamp(12rem, 40vw, 24rem);
+      height: clamp(12rem, 40vw, 24rem);
       border-radius: 50%;
       overflow: hidden;
       background: var(--card-color);
@@ -150,83 +162,159 @@ const texts = useTexts();
   }
 }
 
+/* Tablets */
+@media (min-width: 640px) {
+  .hero {
+    padding: 6rem 1.5rem 2rem;
+
+    &__container {
+      padding: 0 1.5rem;
+    }
+
+    &__content {
+      gap: 3.5rem;
+    }
+
+    &__buttons {
+      gap: 1.25rem;
+
+      .btn {
+        padding: 0 2rem;
+      }
+    }
+
+    &__image {
+      .image__border {
+        width: clamp(14rem, 35vw, 20rem);
+        height: clamp(14rem, 35vw, 20rem);
+      }
+    }
+  }
+}
+
+/* Desktop */
 @media (min-width: 768px) {
   .hero {
     &__content {
       flex-direction: row;
       justify-content: space-between;
-      text-align: left; /* En escritorio volvemos a alinear a la izquierda */
-      gap: 5rem;
+      text-align: left;
+      gap: 4rem; /* Ajustamos gap para desktop */
+      align-items: center;
     }
 
     &__text {
+      max-width: 55%; /* Limitamos el ancho del texto en desktop */
+
       .hero__name {
-        font-size: 5rem;
-        text-align: left; /* En escritorio alineamos a la izquierda */
+        text-align: left;
+        font-size: clamp(3rem, 5vw, 5rem);
       }
 
       .hero__title {
-        font-size: 2.25rem;
-        text-align: left; /* En escritorio alineamos a la izquierda */
+        text-align: left;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
       }
 
       .hero__description {
-        font-size: 1.15rem;
-        text-align: left; /* En escritorio alineamos a la izquierda */
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+        font-size: clamp(1rem, 1.5vw, 1.15rem);
       }
     }
 
     &__buttons {
-      justify-content: flex-start; /* En escritorio alineamos a la izquierda */
+      justify-content: flex-start;
     }
 
     &__image {
+      max-width: 45%; /* Limitamos el ancho de la imagen en desktop */
+
       .image__border {
-        width: 24rem;
-        height: 24rem;
+        width: clamp(16rem, 25vw, 24rem);
+        height: clamp(16rem, 25vw, 24rem);
       }
     }
   }
 }
 
+/* Desktop grande */
+@media (min-width: 1024px) {
+  .hero {
+    &__content {
+      gap: 5rem;
+    }
+  }
+}
+
+/* Pantallas muy pequeñas */
 @media (max-width: 480px) {
   .hero {
+    padding: 5rem 0.5rem 2rem;
+
+    &__container {
+      padding: 0 0.5rem;
+    }
+
+    &__content {
+      gap: 2.5rem;
+    }
+
     &__buttons {
       flex-direction: column;
       align-items: center;
+      gap: 0.75rem;
     }
 
     .btn {
       width: 100%;
-      max-width: 300px;
+      max-width: 280px;
+      height: 3.25rem;
     }
 
     &__text {
       .hero__name {
-        font-size: 3rem;
+        font-size: clamp(2.25rem, 9vw, 3rem);
       }
 
       .hero__title {
-        font-size: 1.75rem;
+        font-size: clamp(1.25rem, 5.5vw, 1.75rem);
       }
     }
 
     &__image {
       .image__border {
-        width: 16rem; /* Reducimos ligeramente para móviles pequeños */
-        height: 16rem;
+        width: clamp(10rem, 50vw, 16rem);
+        height: clamp(10rem, 50vw, 16rem);
       }
     }
   }
 }
 
-/* Ajustes adicionales para móviles muy pequeños */
+/* Pantallas extremadamente pequeñas */
 @media (max-width: 360px) {
   .hero {
+    padding: 4rem 0.5rem 2rem;
+
+    &__content {
+      gap: 2rem;
+    }
+
+    &__text {
+      .hero__name {
+        font-size: clamp(2rem, 10vw, 2.5rem);
+      }
+
+      .hero__title {
+        font-size: clamp(1.1rem, 6vw, 1.5rem);
+      }
+    }
+
     &__image {
       .image__border {
-        width: 14rem;
-        height: 14rem;
+        width: clamp(8rem, 45vw, 14rem);
+        height: clamp(8rem, 45vw, 14rem);
       }
     }
   }
