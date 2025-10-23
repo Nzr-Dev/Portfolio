@@ -1,7 +1,14 @@
 <template>
-  <section id="experience" class="section">
+  <section 
+    id="experience" 
+    class="section" 
+    role="region"
+    aria-labelledby="encabezado-experiencia"
+  >
     <div class="section__container">
-      <h2 class="section__title">{{ texts.experience.title }}</h2>
+      <h2 id="experience-heading" class="section__title experience-title">
+        {{ texts.experience.title }}
+      </h2>
       
       <div class="experience-grid">
         <ExperienceCard
@@ -26,10 +33,15 @@ const texts = useTexts()
 </script>
 
 <style scoped lang="scss">
+.experience-title {
+  font-weight: 800;
+}
+
 .experience-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {

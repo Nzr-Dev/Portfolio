@@ -1,6 +1,19 @@
 <template>
-  <div class="tech-card">
-    <img :src="image" :alt="alt" class="tech-card__image" loading="lazy" />
+  <div 
+    class="tech-card" 
+    role="listitem"
+    :aria-label="`Technology: ${name}`"
+  >
+    <div class="tech-card__image-container">
+      <img 
+        :src="image" 
+        :alt="alt" 
+        class="tech-card__image"
+        loading="lazy"
+        @error="handleImageError"
+        @load="handleImageLoad"
+      />
+    </div>
     <p class="tech-card__name">{{ name }}</p>
   </div>
 </template>
@@ -12,37 +25,80 @@ interface Props {
   alt: string;
 }
 
-defineProps<Props>();
+defineProps<Props>()
+
+const handleImageError = (event: Event) => {
+  const target = event.target as HTMLImageElement
+  console.warn(`Failed to load technology image: ${target.src}`)
+  target.style.display = 'none'
+}
+
+const handleImageLoad = (event: Event) => {
+  console.log('Technology image loaded successfully')
+}
 </script>
 
 <style scoped lang="scss">
 .tech-card {
   background: var(--card-color);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
+  padding: 2rem 1rem;
   transition: var(--transition);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.25rem; 
+  min-height: 140px;
+  aspect-ratio: 4/3;
+  border: 2px solid transparent;
 
   &:hover {
-    background: rgba(26, 122, 99, 0.7);
-    box-shadow: 0 0 10px rgba(26, 122, 99, 0.7);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
     transform: translateY(-2px);
   }
+}
 
-  &__image {
-    width: 5rem;
-    height: 5rem;
-    object-fit: contain;
+.tech-card__image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px; 
+}
+
+.tech-card__image {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  
+  .tech-card:hover & {
+    transform: scale(1.1); 
   }
+}
 
-  &__name {
-    color: var(--text-color);
-    font-weight: 500;
-    margin: 0;
+.tech-card__name {
+  color: var(--text-color);
+  font-weight: 500;
+  margin: 0;
+  font-size: 1rem; 
+}
+
+@media (min-width: 768px) {
+  .tech-card {
+    padding: 2.5rem 1rem; 
+    min-height: 160px; 
+  }
+  
+  .tech-card__image-container {
+    height: 90px; 
+  }
+  
+  .tech-card__name {
+    font-size: 1.1rem; 
   }
 }
 </style>

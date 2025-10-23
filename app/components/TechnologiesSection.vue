@@ -1,7 +1,14 @@
 <template>
-  <section id="technologies" class="section">
+  <section 
+    id="technologies" 
+    class="section" 
+    role="region"
+    aria-labelledby="technologies-heading"
+  >
     <div class="section__container">
-      <h2 class="section__title">{{ texts.technologies.title }}</h2>
+      <h2 id="technologies-heading" class="section__title technologies-title">
+        {{ texts.technologies.title }}
+      </h2>
       
       <div class="technologies-grid">
         <TechCard
@@ -24,9 +31,13 @@ const texts = useTexts()
 </script>
 
 <style scoped lang="scss">
+.technologies-title {
+  font-weight: 800; 
+}
+
 .technologies-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -39,12 +50,14 @@ const texts = useTexts()
 @media (min-width: 768px) {
   .technologies-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .technologies-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
   }
 }
 </style>

@@ -1,94 +1,101 @@
 {
   "hero": {
-    "name": "Juan Pérez",
-    "title": "Frontend Web Developer",
-    "description": "Creating futuristic web experiences with a neon touch. My goal is to combine design and functionality to build intuitive and attractive interfaces.",
-    "ctaPrimary": "View my projects",
-    "ctaSecondary": "Contact me",
-    "imageAlt": "Juan Pérez profile photo"
+    "name": "Nazariy Voronchiy",
+    "title": "Desarrollador Web Frontend",
+    "description": "Creando experiencias web futuristas con un toque neón. Mi objetivo es combinar diseño y funcionalidad para construir interfaces intuitivas y atractivas.",
+    "ctaPrimary": "Ver mis proyectos",
+    "ctaSecondary": "Contactarme",
+    "imageAlt": "Foto de perfil de Nazariy Voronchiy"
   },
 
   "projects": {
-    "title": "Projects",
+    "title": "Proyectos",
     "items": [
       {
-        "title": "E-commerce Platform",
-        "description": "A full-featured online store built with Vue 3 and TypeScript. Features include user authentication, product catalog, shopping cart, and payment integration.",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCLoQxJFFL0RgVFRhzQVDLPuQ0qaCscYSTtArwkLThBlPfP3Wr4pV020AVICzatYiT8N1tncmPTmMoi-OD2CX5EsAfLcD-l1iv9_UI3YPoUMUzNVSLYy6snHWJv1aQIiBiMiGB3aqGluLNcH_AuL7383uomKuIVQr0kLC9WU-7dVCLPINwr9FOf0KgBTkf2OczK99LU6uD893xPitn7zCbZROpyvjlIwX-dQ0WlDcOcy66ZFfi4mbs0EGF2W32ZqQeUsmjvK-mrIgu5",
+        "title": "Plataforma E-commerce",
+        "description": "Una tienda online completa desarrollada con Vue 3 y TypeScript. Incluye autenticación de usuarios, catálogo de productos, carrito de compras e integración de pagos.",
+        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
         "liveUrl": "#",
-        "buttonText": "View Project"
+        "buttonText": "Ver Proyecto"
       },
       {
-        "title": "Task Management App",
-        "description": "A productivity application for team collaboration with real-time updates, drag-and-drop functionality, and progress tracking.",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCLoQxJFFL0RgVFRhzQVDLPuQ0qaCscYSTtArwkLThBlPfP3Wr4pV020AVICzatYiT8N1tncmPTmMoi-OD2CX5EsAfLcD-l1iv9_UI3YPoUMUzNVSLYy6snHWJv1aQIiBiMiGB3aqGluLNcH_AuL7383uomKuIVQr0kLC9WU-7dVCLPINwr9FOf0KgBTkf2OczK99LU6uD893xPitn7zCbZROpyvjlIwX-dQ0WlDcOcy66ZFfi4mbs0EGF2W32ZqQeUsmjvK-mrIgu5",
+        "title": "App de Gestión de Tareas",
+        "description": "Una aplicación de productividad para colaboración en equipo con actualizaciones en tiempo real, funcionalidad de arrastrar y soltar, y seguimiento de progreso.",
+        "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
         "liveUrl": "#",
-        "buttonText": "View Project"
+        "buttonText": "Ver Proyecto"
       },
       {
-        "title": "Weather Dashboard",
-        "description": "A responsive weather application with location-based forecasts, interactive maps, and detailed meteorological data visualization.",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCLoQxJFFL0RgVFRhzQVDLPuQ0qaCscYSTtArwkLThBlPfP3Wr4pV020AVICzatYiT8N1tncmPTmMoi-OD2CX5EsAfLcD-l1iv9_UI3YPoUMUzNVSLYy6snHWJv1aQIiBiMiGB3aqGluLNcH_AuL7383uomKuIVQr0kLC9WU-7dVCLPINwr9FOf0KgBTkf2OczK99LU6uD893xPitn7zCbZROpyvjlIwX-dQ0WlDcOcy66ZFfi4mbs0EGF2W32ZqQeUsmjvK-mrIgu5",
+        "title": "Dashboard Meteorológico",
+        "description": "Una aplicación meteorológica responsive con pronósticos basados en ubicación, mapas interactivos y visualización detallada de datos meteorológicos.",
+        "image": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80",
         "liveUrl": "#",
-        "buttonText": "View Project"
+        "buttonText": "Ver Proyecto"
       }
     ]
   },
 
   "technologies": {
-    "title": "Technologies",
+    "title": "Tecnologías",
     "items": [
-      { "name": "HTML5", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", "alt": "HTML5 Logo" },
-      { "name": "CSS3", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", "alt": "CSS3 Logo" },
-      { "name": "JavaScript", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", "alt": "JavaScript Logo" },
-      { "name": "TypeScript", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", "alt": "TypeScript Logo" },
-      { "name": "Vue.js", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", "alt": "Vue.js Logo" },
-      { "name": "React", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", "alt": "React Logo" },
-      { "name": "Node.js", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", "alt": "Node.js Logo" },
-      { "name": "Git", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", "alt": "Git Logo" },
-      { "name": "Sass", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg", "alt": "Sass Logo" },
-      { "name": "Webpack", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg", "alt": "Webpack Logo" },
-      { "name": "Jest", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg", "alt": "Jest Logo" },
-      { "name": "Figma", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", "alt": "Figma Logo" }
+      { "name": "HTML5", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", "alt": "Logo HTML5" },
+      { "name": "CSS3", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", "alt": "Logo CSS3" },
+      { "name": "JavaScript", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", "alt": "Logo JavaScript" },
+      { "name": "TypeScript", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", "alt": "Logo TypeScript" },
+      { "name": "Sass", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg", "alt": "Logo Sass" },
+      { "name": "Vue.js", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", "alt": "Logo Vue.js" },
+      { "name": "VSCode", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", "alt": "Logo VSCode" },
+      { "name": "Nuxt", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg", "alt": "Logo Nuxt" },
+      { "name": "Node.js", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", "alt": "Logo Node.js" },
+      { "name": "MySQL", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", "alt": "Logo MySQL" },
+      { "name": "MongoDB", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", "alt": "Logo MongoDB" },
+      { "name": "Git", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", "alt": "Logo Git" }
     ]
   },
 
   "experience": {
-    "title": "Experience",
+    "title": "Experiencia",
     "education": {
-      "title": "Education & Training",
+      "title": "Educación y Formación",
       "items": [
         {
-          "title": "Bachelor's Degree in Computer Engineering",
-          "organization": "Polytechnic University", 
-          "period": "2015 - 2019",
+          "title": "FP Medio en Mecanizado",
+          "organization": "IES Politècnic", 
+          "period": "2015 - 2017",
           "description": "",
           "type": "education"
         },
         {
-          "title": "Advanced React Course",
-          "organization": "Online Course Platform",
-          "period": "2020", 
+          "title": "FP Superior en Programación de la Producción en Fabricación Mecánica",
+          "organization": "IES Politècnic",
+          "period": "2017 - 2019", 
+          "description": "",
+          "type": "education"
+        },
+        {
+          "title": "FP Superior en Desarrollo de Aplicaciones Web",
+          "organization": "IES Lázaro Cárdenas",
+          "period": "2023 - 2025", 
           "description": "",
           "type": "education"
         }
       ]
     },
     "work": {
-      "title": "Work Experience",
+      "title": "Experiencia Laboral",
       "items": [
         {
-          "title": "Frontend Developer",
+          "title": "Desarrollador Frontend",
           "organization": "Tech Solutions",
-          "period": "January 2021 - Present",
-          "description": "Development and maintenance of interactive web applications using React and Redux. Collaboration with UI/UX teams to implement pixel-perfect designs.",
+          "period": "Enero 2021 - Presente",
+          "description": "Desarrollo y mantenimiento de aplicaciones web interactivas utilizando React y Redux. Colaboración con equipos de UI/UX para implementar diseños pixel-perfect.",
           "type": "work"
         },
         {
-          "title": "Junior Web Developer", 
+          "title": "Desarrollador Web Junior", 
           "organization": "Innovate Co.",
-          "period": "June 2019 - December 2020",
-          "description": "Building responsive and optimized websites for clients from various industries, using HTML, CSS and JavaScript.",
+          "period": "Junio 2019 - Diciembre 2020",
+          "description": "Construcción de sitios web responsivos y optimizados para clientes de diversas industrias, utilizando principalmente HTML, CSS y JavaScript.",
           "type": "work"
         }
       ]
@@ -96,16 +103,15 @@
   },
 
   "contact": {
-    "title": "Contact",
-    "description": "I'm currently open to new opportunities and interesting projects. Feel free to reach out if you want to collaborate!",
+    "title": "Contacto",
     "form": {
-      "name": "Name",
-      "email": "Email", 
-      "message": "Message",
-      "button": "Send Message"
+      "name": "Nombre",
+      "email": "Correo Electrónico", 
+      "message": "Mensaje",
+      "button": "Enviar Mensaje"
     },
     "social": {
-      "title": "You can also find me on:",
+      "title": "También puedes encontrarme en:",
       "github": "GitHub",
       "linkedin": "LinkedIn",
       "twitter": "Twitter"
@@ -113,7 +119,7 @@
   },
 
   "footer": {
-    "copyright": "© 2024 Juan Pérez. All rights reserved.",
-    "backToTop": "Back to top"
+    "copyright": "© 2024 Nazariy Voronchiy. Todos los derechos reservados.",
+    "backToTop": "Volver arriba"
   }
 }

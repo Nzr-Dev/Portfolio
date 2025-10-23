@@ -1,19 +1,29 @@
 <template>
-  <article class="project-card">
+  <article 
+    class="project-card"
+    role="article"
+    :aria-labelledby="`titulo-proyecto-${index}`"
+  >
     <div 
       class="project-card__image"
       :style="{ backgroundImage: `url(${image})` }"
+      role="img"
+      :aria-label="`Captura de pantalla del proyecto ${title}`"
     ></div>
     
     <div class="project-card__content">
       <div class="project-card__header">
-        <h3 class="project-card__title">{{ title }}</h3>
+        <h3 :id="`project-title-${index}`" class="project-card__title">
+          {{ title }}
+        </h3>
         <div class="project-card__actions">
           <a 
             :href="liveUrl" 
             class="btn btn--primary"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="`Ver proyecto en vivo: ${title}`"
+            @keydown.space.prevent="openLink(liveUrl)"
           >
             {{ buttonText }}
           </a>
@@ -32,23 +42,34 @@ interface Props {
   image: string;
   liveUrl: string;
   buttonText: string;
+  index: number;
 }
 
-defineProps<Props>();
+defineProps<Props>()
+
+const openLink = (url: string) => {
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/scss/variables";
+@import "@/assets/scss/mixins";
+
 .project-card {
   background: var(--card-color);
   border-radius: var(--border-radius);
-  padding: 2rem;
+  padding: 2.5rem; 
   transition: var(--transition);
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  border: 2px solid transparent;
 
   &:hover {
-    box-shadow: 0 0 15px rgba(26, 122, 99, 0.7);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color); 
+    transform: translateY(-5px);
   }
 
   &__image {
@@ -74,7 +95,7 @@ defineProps<Props>();
 
   &__title {
     font-size: 1.75rem;
-    font-weight: 700;
+    font-weight: 700; 
     color: var(--text-color);
     margin: 0;
   }
@@ -107,6 +128,8 @@ defineProps<Props>();
 
 @media (max-width: 480px) {
   .project-card {
+    padding: 2rem;
+    
     &__header {
       flex-direction: column;
       align-items: flex-start;
@@ -115,7 +138,7 @@ defineProps<Props>();
 
     &__actions {
       width: 100%;
-
+      
       .btn {
         width: 100%;
       }

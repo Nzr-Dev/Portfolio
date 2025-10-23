@@ -1,19 +1,35 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Menú de navegación">
     <div class="nav-links">
-      <a href="#home">{{ texts.nav.home }}</a>
-      <a href="#projects">{{ texts.nav.projects }}</a>
-      <a href="#technologies">{{ texts.nav.technologies }}</a>
-      <a href="#experience">{{ texts.nav.experience }}</a>
-      <a href="#contact">{{ texts.nav.contact }}</a>
+      <a 
+        v-for="link in navigationLinks" 
+        :key="link.id"
+        :href="link.href"
+        class="nav-link"
+        @keydown.enter="handleNavKeydown(link.href)"
+      >
+        {{ link.text }}
+      </a>
     </div>
   </nav>
 </template>
 
 <script setup lang="ts">
-import { useTexts } from '@/composables/useTexts'
+const navigationLinks = [
+  { id: 1, href: '#home', text: 'Inicio' },
+  { id: 2, href: '#projects', text: 'Proyectos' },
+  { id: 3, href: '#technologies', text: 'Tecnologías' },
+  { id: 4, href: '#experience', text: 'Experiencia' },
+  { id: 5, href: '#contact', text: 'Contacto' }
+]
 
-const texts = useTexts()
+const handleNavKeydown = (href: string) => {
+  const target = document.querySelector(href)
+  if (target) {
+    (target as HTMLElement).focus()
+    target.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -37,13 +53,37 @@ const texts = useTexts()
   padding: 0 1rem;
 }
 
-.nav-links a {
+.nav-link {
   color: var(--text-color);
   font-weight: 500;
-  transition: color 0.25s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  padding: 0.5rem 0.25rem;
+  font-size: 1.1rem; /* Tamaño de letra aumentado */
+  position: relative;
 
-  &:hover {
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  &:hover,
+  &:focus {
     color: var(--accent-color);
+    outline: none;
+    
+    &::after {
+      width: 100%;
+      box-shadow: 0 0 5px var(--accent-color),
+                  0 0 10px var(--accent-color);
+    }
   }
 }
 
@@ -51,6 +91,10 @@ const texts = useTexts()
   .nav-links {
     gap: 1rem;
     flex-wrap: wrap;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
   }
 }
 </style>

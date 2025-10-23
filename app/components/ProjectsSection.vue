@@ -1,17 +1,22 @@
 <template>
-  <section id="projects" class="section">
+  <section 
+    id="projects" 
+    class="section" 
+    role="region"
+    aria-labelledby="projects-heading"
+  >
     <div class="section__container">
-      <h2 class="section__title">{{ texts.projects.title }}</h2>
+      <h2 id="projects-heading" class="section__title projects-title">
+        {{ texts.projects.title }}
+      </h2>
       
-      <div class="projects-grid">
+      <div class="projects-grid" role="list" aria-label="Lista de proyectos">
         <ProjectCard
           v-for="(project, index) in texts.projects.items"
-          :key="index"
-          :title="project.title"
-          :description="project.description"
-          :image="project.image"
-          :liveUrl="project.liveUrl"
-          :buttonText="project.buttonText"
+          :key="project.title + index"
+          v-bind="project"
+          :index="index"
+          role="listitem"
         />
       </div>
     </div>
@@ -26,6 +31,10 @@ const texts = useTexts()
 </script>
 
 <style scoped lang="scss">
+.projects-title {
+  font-weight: 800;
+}
+
 .projects-grid {
   display: flex;
   flex-direction: column;
