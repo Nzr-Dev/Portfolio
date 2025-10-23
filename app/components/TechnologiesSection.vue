@@ -31,8 +31,20 @@ const texts = useTexts();
 </script>
 
 <style scoped lang="scss">
+.section {
+  padding: 5rem 0; /* Eliminamos el padding lateral por defecto */
+
+  &__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1.5rem; /* Añadimos padding lateral al contenedor */
+  }
+}
+
 .technologies-title {
   font-weight: 800;
+  text-align: center;
 }
 
 .technologies-grid {
@@ -61,11 +73,14 @@ const texts = useTexts();
   }
 }
 
-/* Añadimos márgenes laterales solo para móviles */
-@media (max-width: 767px) {
-  .section {
-    padding-left: 1rem;
-    padding-right: 1rem;
+/* Ajustes para móviles pequeños */
+@media (max-width: 480px) {
+  .section__container {
+    padding: 0 1rem; /* Reducimos el padding en móviles pequeños */
+  }
+
+  .technologies-grid {
+    gap: 1rem; /* Reducimos el gap en móviles pequeños */
   }
 }
 </style>

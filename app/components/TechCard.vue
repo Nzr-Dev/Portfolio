@@ -38,7 +38,7 @@ const handleImageLoad = (event: Event) => {
 .tech-card {
   background: var(--card-color);
   border-radius: var(--border-radius);
-  padding: 1.5rem 1rem; /* Reducimos el padding superior/inferior en móvil */
+  padding: 1.5rem 1rem;
   transition: var(--transition);
   text-align: center;
   display: flex;
@@ -48,7 +48,7 @@ const handleImageLoad = (event: Event) => {
   min-height: 140px;
   aspect-ratio: 4/3;
   border: 2px solid transparent;
-  position: relative; /* Para control de posicionamiento */
+  position: relative;
 
   &:hover {
     border-color: var(--accent-color);
@@ -64,7 +64,6 @@ const handleImageLoad = (event: Event) => {
   height: 80px;
   width: 100%;
   margin-bottom: 0.5rem;
-  /* Añadimos flex-grow para ocupar espacio disponible y centrar mejor */
   flex-grow: 1;
 }
 
@@ -88,19 +87,18 @@ const handleImageLoad = (event: Event) => {
   font-size: 1rem;
   width: 100%;
   text-align: center;
-  /* Eliminamos align-self: flex-end para un centrado más natural */
 }
 
 @media (min-width: 768px) {
   .tech-card {
-    padding: 2.5rem 1rem; /* Mantenemos el padding original en desktop */
+    padding: 2.5rem 1rem;
     min-height: 160px;
   }
 
   .tech-card__image-container {
     height: 90px;
     margin-bottom: 0.75rem;
-    flex-grow: 1; /* Aplicamos el mismo comportamiento en desktop */
+    flex-grow: 1;
   }
 
   .tech-card__name {
