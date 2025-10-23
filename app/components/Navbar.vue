@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="Menú de navegación">
     <div class="nav-links">
-      <a 
-        v-for="link in navigationLinks" 
+      <a
+        v-for="link in navigationLinks"
         :key="link.id"
         :href="link.href"
         class="nav-link"
@@ -16,20 +16,20 @@
 
 <script setup lang="ts">
 const navigationLinks = [
-  { id: 1, href: '#home', text: 'Inicio' },
-  { id: 2, href: '#projects', text: 'Proyectos' },
-  { id: 3, href: '#technologies', text: 'Tecnologías' },
-  { id: 4, href: '#experience', text: 'Experiencia' },
-  { id: 5, href: '#contact', text: 'Contacto' }
-]
+  { id: 1, href: "#home", text: "Inicio" },
+  { id: 2, href: "#projects", text: "Proyectos" },
+  { id: 3, href: "#technologies", text: "Tecnologías" },
+  { id: 4, href: "#experience", text: "Experiencia" },
+  { id: 5, href: "#contact", text: "Contacto" },
+];
 
 const handleNavKeydown = (href: string) => {
-  const target = document.querySelector(href)
+  const target = document.querySelector(href);
   if (target) {
-    (target as HTMLElement).focus()
-    target.scrollIntoView({ behavior: 'smooth' })
+    (target as HTMLElement).focus();
+    target.scrollIntoView({ behavior: "smooth" });
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -63,7 +63,7 @@ const handleNavKeydown = (href: string) => {
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
@@ -78,11 +78,10 @@ const handleNavKeydown = (href: string) => {
   &:focus {
     color: var(--accent-color);
     outline: none;
-    
+
     &::after {
       width: 100%;
-      box-shadow: 0 0 5px var(--accent-color),
-                  0 0 10px var(--accent-color);
+      box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
     }
   }
 }
@@ -92,7 +91,7 @@ const handleNavKeydown = (href: string) => {
     gap: 1rem;
     flex-wrap: wrap;
   }
-  
+
   .nav-link {
     font-size: 1rem;
   }
